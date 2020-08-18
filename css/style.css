@@ -1,0 +1,348 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0 auto;
+  font-size: 100%;
+  font-family: 'Jost', serif;
+  color: #fff;
+  background: linear-gradient(to right, #20222F 0%,#20222F 40%,#20222F 100%);
+  min-width: 600px; 
+  max-width: 100%;
+  position: relative;
+  vertical-align:middle;
+}
+
+::-webkit-input-placeholder {
+  color: #3F4559;
+  font-style: italic;
+}
+
+h1 {
+  margin-top: 20px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0px 2px #20222F;
+}
+
+
+
+a {
+  text-decoration: none;
+}
+
+.limiter {
+  margin: 20px auto;
+  max-width: 600px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+.row {
+  zoom: 1;
+}
+
+.col-1-2 {
+  float: left;
+  padding: 10px;
+  width: 40%;
+}
+
+.col-1-4 {
+  float: left;
+  padding: 10px;
+  width: 30%;
+}
+
+.insert {
+  position: relative;
+  padding: 30px;
+  border-top: solid 1px #292D39;
+  overflow: hidden;
+  background: #292D39;
+}
+
+#js-insert {
+  top: 0;
+  left: 50px;
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  border: none;
+  outline: none;
+  font-size: 23px;
+  font-family: inherit;
+  color: #fff;
+  background: #292D39;
+}
+
+#js-toggle-all {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.bar {
+  color: #525366;
+  background: #EEEEEE;
+  border-top: solid 1px #EEEEEE;
+  border-bottom: solid 1px #EEEEEE;
+  box-shadow: inset 0 0 16px rgba(0,0,0,0.1);
+}
+
+.info {
+  float: left;
+  width: 33.333333333%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.info:last-child {
+  text-align: right;
+}
+
+.total {
+  display: inline-block;
+  float: left;
+  margin-top: 4px;
+}
+
+.filter {
+  text-align: center;
+}
+
+.filter li {
+  display: inline-block;
+}
+
+.button {
+  display: inline-block;
+  margin: 0 4px;
+  padding: 2px 8px;
+  font-size: 13px;
+  color: #3F4559;
+  border: solid 1px #3F4559;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+
+.button.selected {
+  color: #EEEEEE;
+  background: #6353FE;
+  border: solid 1px #6353FE;
+}
+
+.button:active {
+  /*transform: translate(0px,2px);*/
+  /*border-bottom: 1px solid;*/
+}
+
+.button--clear {
+  float: right;
+  color: #fff;
+  background: #EE1630;
+  border: solid 1px #EE1630;
+}
+
+
+.list {
+  position: relative;
+  background: #292D39;
+}
+
+.list:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 21px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #292D39, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 17px 0 -6px #292D39, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+.list li {
+  position: relative;
+  padding: 10px 20px;
+  border-bottom: solid 1px #292D39;
+  list-style: none;
+  overflow: hidden;
+}
+
+.list li:hover .destroy {
+  display: inline-block;
+}
+
+.todo span {
+  display: block;
+  margin-left: 30px;
+  font-size: 23px;
+  transition: color 0.3s ease-out;
+}
+
+.completed .todo span {
+  text-decoration: line-through;
+  color: #464D63;
+}
+
+.toggle {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.toggle:after {
+  content: "";
+  position: absolute;
+  transform: rotateZ(-42deg);
+  animation: checkOut .0s ease-out forwards;
+}
+
+.toggle:checked:after {
+  animation: checkIn .3s ease-out forwards;
+}
+
+@keyframes checkIn {
+  0% {
+    width: 24px;
+    height: 24px;
+    background: #20222F;
+    border-radius: 20px;
+    box-shadow: inset 0 0 3px #282931;
+  }
+  100% {
+    height: 14px;
+    width: 20px;
+    background: transparent;
+    border-radius: 0;
+    border-left: solid 4px #4e8cff;
+    border-bottom: solid 4px #4e8cff;
+  }
+}
+
+@keyframes checkOut {
+  0% {
+    height: 14px;
+    width: 20px;
+    background: transparent;
+    border-radius: 0;
+    border-left: solid 4px #4e8cff;
+    border-bottom: solid 4px #4e8cff;
+  }
+  100% {
+    width: 24px;
+    height: 24px;
+    background: #3F4559;
+    border-radius: 20px;
+    box-shadow: inset 0 0 3px #282931;
+  }
+}
+
+.edit {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 50px;
+  width: 0%;
+  height: 50px;
+  opacity: 0;
+  margin: auto 0;
+  font-size: 23px;
+  font-family: inherit;
+  color: #fff;
+  background: #4e8cff;
+  margin-bottom: 11px;
+  border: none;
+  outline: none;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.1);
+  z-index: 9;
+}
+
+.editing .edit {
+  animation: anime .3s ease-out forwards;
+}
+
+@keyframes anime {
+  0% {
+    opacity: 0;
+    width: 0%;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+.destroy {
+  position: absolute;
+  display: block;
+  top: 0px;
+  right: 0;
+  border: none;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  z-index: 2;
+  outline: none;
+}
+
+.destroy:before,
+.destroy:after {
+  content: '';
+  position: absolute;
+  top: 12.5px;
+  left: 24px;
+  width: 1px;
+  height: 25px;
+  background: #EE1630;
+  opacity: 0;
+  box-shadow: 0 0 4px #22203d;
+  transition: all .5s ease-out;
+  transform: rotateZ(45deg);
+}
+
+.destroy:after {
+  left: 25px;
+  transform: rotateZ(-45deg);
+}
+
+.list li:hover .destroy:before,
+.list li:hover .destroy:after  {
+  opacity: 1;
+  height: 25px;
+}
+
+.destroy:hover:before,
+.destroy:hover:after {
+  box-shadow: 0 0px 8px #EE1630;
+}
+
+
+.editing .edit {
+  display: block;
+}
+
+.editing .todo {
+  visibility: hidden;
+}
